@@ -20,3 +20,13 @@ Route::get('/', function () {
 });
 
 Route::resource('utilisateurs','UtilisateurController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('custom-register','CustomAuthController@showRegisterForm')->name('custom.register');
+Route::post('custom-register','CustomAuthController@register');
+
+Route::get('custom-login','CustomAuthController@showLoginForm')->name('custom.login');
+Route::post('custom-login','CustomAuthController@login');
